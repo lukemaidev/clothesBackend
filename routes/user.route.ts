@@ -1,6 +1,6 @@
 const express = require("express")
 
-const {getAllUsers, createUser, updateUser, deleteUser, getUserById, getUserByEmail} = require("../controllers/user.controller")
+const {getAllUsers, createUser, updateUser, deleteUser, getUserById, getUserByEmail, getUserByUserName} = require("../controllers/user.controller")
 const {authenticateToken, roleAuth} = require("../middleware/auth")
 
 const router = express.Router();
@@ -19,6 +19,7 @@ router.patch("/",updateUser );
 router.delete("/", deleteUser);
 router.get("/id/:id", getUserById);
 router.get("/email/:email", getUserByEmail);
+router.get("/username/:username", getUserByUserName);
 
 module.exports = router;
 
