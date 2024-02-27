@@ -5,10 +5,12 @@ const {authenticateToken, roleAuth} = require("../middleware/auth")
 
 const router = express.Router();
 
-/* A bunch of routes here*/
+/*This is disabled for developing purposes
 
 router.use(authenticateToken)
 router.use(roleAuth("admin"))
+
+*/
 
 
 router.get("/", getAllNotifications);

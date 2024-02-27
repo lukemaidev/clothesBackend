@@ -7,10 +7,13 @@ const authenticateToken = async (
   res: Response,
   next: NextFunction
 ) => {
+  console.log(req.cookies)
   const authHeader = JSON.parse(req.cookies.secureCookie);
+  
   const token = authHeader && authHeader.AdminCookie;
-  if (token == null) return res.sendStatus(401);
   try {
+
+    if (token == null) return res.sendStatus(401);
     const decodedToken = await jwt.verify(
       token,
       process.env.JWT_SECRET,

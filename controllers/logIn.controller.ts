@@ -18,7 +18,8 @@ const logIn = async (req: Request, res: Response) => {
       );
       res.cookie("secureCookie", JSON.stringify({AdminCookie:token}), {
         secure: process.env.NODE_ENV !== "development",
-        httpOnly: true,
+        httpOnly: true, 
+        //For testing purpose this is set to false
       });
       res.status(200).json({ message:"Logged in successfully"})
     }
